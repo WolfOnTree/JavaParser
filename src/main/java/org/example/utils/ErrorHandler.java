@@ -1,4 +1,4 @@
-package org.example;
+package org.example.utils;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -6,6 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 public class ErrorHandler implements Thread.UncaughtExceptionHandler{
     @Override
     public void uncaughtException(Thread t, Throwable e) {
-        log.error("Поток " + t.getName() + " завершён с ошибкой"+ e.getMessage());
+        log.error("Поток " + t.getName() + " завершён с ошибкой "+ e.getMessage());
     }
 }

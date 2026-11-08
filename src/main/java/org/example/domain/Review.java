@@ -2,8 +2,6 @@ package org.example.domain;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-
 @Entity
 @Table(name = "reviews")
 public class Review {
@@ -12,17 +10,41 @@ public class Review {
     private long id;
 
     @Column(nullable = false)
+    private String productName;
+
+    @Column(nullable = false)
     private String URL;
 
-    @Column(nullable = true)
+    @Column(nullable = true, length = 5000)
     private String review;
 
     @Column(nullable = false)
     private int rating;
 
-    @Column(nullable = false)
-    private String author;
+    public Review() {
 
-    @Column(nullable = false)
-    private Date date;
+    }
+
+    public Review(String productName, String URL, String review, int rating){
+        this.productName = productName;
+        this.URL = URL;
+        this.review = review;
+        this.rating = rating;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public String getURL() {
+        return URL;
+    }
+
+    public String getReview() {
+        return review;
+    }
+
+    public int getRating() {
+        return rating;
+    }
 }

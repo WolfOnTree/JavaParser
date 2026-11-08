@@ -4,6 +4,7 @@ import org.example.domain.Review;
 import org.example.repo.ReviewRepo;
 import org.springframework.stereotype.Service;
 
+import javax.naming.Name;
 import java.util.List;
 
 @Service
@@ -25,5 +26,13 @@ public class ReviewService {
 
     public Review saveReview(Review review){
         return reviewRepo.save(review);
+    }
+
+    public List<Review> getReviewsByName(String Name){
+        return reviewRepo.findByProductName(Name);
+    }
+
+    public Review getReviewByURL(String URL){
+        return reviewRepo.findByURL(URL);
     }
 }
